@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600");
 body {
-    color: #777;
+    color: black;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     direction: rtl;
@@ -126,10 +126,15 @@ textarea:focus {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%)
 }
-
+.main-menu{
+    height: 100%;
+}
 .main-menu ul {
-    width: 100%;
+    width: 100%;height: 100%;
     text-align: center;
+    direction: rtl;
+    display: flex;
+    align-items: center;
     direction: rtl;
 }
 
@@ -202,10 +207,10 @@ textarea:focus {
     color: #222;
     font-family: "Open Sans", sans-serif;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     display: inline-block;
-    padding: 15px
+    padding: 8px
 }
 
 .main-menu ul li:hover ul.sub-menu {
@@ -3752,4 +3757,10 @@ tr {
 
 .row {
     padding: 15px;
+}
+
+.main-menu li {
+    padding: 0px;
+    display: inline-block; /* Set to inline-block instead of float: left */
+    width: 14.2857142857%;
 }

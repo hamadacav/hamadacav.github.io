@@ -20,6 +20,35 @@
     <link rel="stylesheet" href="assets/css/owl-carousel.min.css">
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-v2.css">
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB5CTp9W7uVG3etrANmP1Jq76PZasTYBzw",
+    authDomain: "konawnan-56bfc.firebaseapp.com",
+    databaseURL: "https://konawnan-56bfc.firebaseio.com",
+    projectId: "konawnan-56bfc",
+    storageBucket: "konawnan-56bfc.appspot.com",
+    messagingSenderId: "790798243381"
+  };
+  firebase.initializeApp(config);
+</script>
+
+    <!-- Bootstrap/jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Contacts JS-->
+    <script src="storage.js"></script>
+
+
 </head>
 <body>
     <!-- Preloader Starts -->
@@ -28,37 +57,34 @@
     </div>
     <!-- Preloader End -->
 
-    <!-- Header Area Starts -->
-	<header class="header-area main-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="logo-area" style="text-align:center;">
-                        <a href="index.html"><img src="assets/images/logo.png" style="width: 15%;
-                            max-width: 170px;" alt="logo"></a>
-                    </div>
-                </div>
-                <div class="col-lg-12">
+
+    <header class="header-area main-header">
+            <div class="container">
+    
+          
+                <div class="row">
+                    <!-- header background -->
+                    <img src="assets/images/header.png">
+    
                     <div class="custom-navbar">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>  
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>  
                     <div class="main-menu">
-                        <ul style="width:100%;text-align:center;direction:rtl;">
-                            <li><a href="index.html">الصفحة الرئيسية</a></li>
-                            <li><a href="projects1.html">مشاريع جماهيريه</a></li>
-                            <li><a href="projects2.html">مشاريع ثقافية</a></li>
-                            <li class="active"><a href="storage.html">مخزن الخير</a></li>
-                            <li><a href="consultant.html">استشارات</a></li>
-                            <li><a href="about.html">من نحن</a></li>
-                            <li><a href="contact-us.html">اتصل بنا</a></li>
-                        </ul>
+                            <ul>
+                                <li><a href="index.html">الصفحة الرئيسية</a></li>
+                                <li ><a href="projects1.html">مشاريع جماهيريه</a></li>
+                                <li ><a href="projects2.html">مشاريع ثقافية</a></li>
+                                <li class="active"><a href="storage.html">مخزن الخير</a></li>
+                                <li ><a href="consultant.html">استشارات</a></li>
+                                <li ><a href="about.html">من نحن</a></li>
+                                <li ><a href="contact-us.html">اتصل بنا</a></li>
+                            </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
     <section class="sample-text-area" style="padding-top: 10px;">
             <div class="container">
@@ -68,14 +94,6 @@
                                 يقوم "مخزن الخير" باستيعاب ادوات/حاجيات (ادوات كهربائيه. حاجيات اساسيه. اثاث منزلي. ملابس.. غير ذلك) مستعمله بعد معاينتها والتدقيق في صحتها وفرزها ومن ثم نقوم باعلانها ونشرها للعامه على موقع الجمعيه وكل من يرغب في الشيئ المعلن يقدم طلب استحقاق.
                             <br>
                             المسؤولين : يحيى حجازي. محمد خطيب. خليل خطيب.ابراهيم عواد
-                        </p>
-                </div>
-                <div class="row" style="margin-top: 5%;">
-                        <h3 class="text-heading title_color" style="text-align:center;width:100%;"> <b>"كن عونا لاداء فريضة الحج"</b></h3>
-                        <p class="sample-text" style="text-align:right;font-size:20px;direction: rtl;width:100%;">
-
-                                جاري البحث عن امكانية تطبيقه...
-
                         </p>
                 </div>
             </div>
@@ -88,67 +106,113 @@
                         <h3 class="text-heading title_color" style="text-align:center;width:100%;"> <b> محتوى المخزن </b></h3>
 
                         <div class="col-md-12">
-                                <button type="button" class="btn btn-info" style="float:right;" data-toggle="modal" data-target="#uploadModal">اضف الى المخزن</button>
-                       
-                                <!-- Modal -->
-                                <div id="uploadModal" class="modal fade" role="dialog" >
-                                  <div class="modal-dialog" >
-                                
-                                    <!-- Modal content-->
-                                    <div class="modal-content" style="direction:rtl;text-align: right;">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title" style="width:100%;">املأ التفاصيل</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                        <!-- Form -->
-                                        <form method='post' action='' enctype="multipart/form-data">
-                                         اختر صورة : <input type='file' name='file' id='file' class='form-control' ><br>
-                                          <input type='button' class='btn btn-info' value='حفظ' id='upload'>
-                                        </form>
-                                
-                                        <!-- Preview-->
-                                        <div id='preview'>
-                                            <img id="imgCont" style="width:100%" src=""/>
-                                        </div>
-                                      </div>
-                                 
-                                    </div>
-                                
-                                  </div>
-                                </div>
+
+
+                                <!-- Contacts Table -->
+    <table id="ContactTable" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <td>...</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="data-temp">
+                <td data-prop="name"></td>
+                <td data-prop="email"></td>
+                <td data-prop="phone"></td>
+                <td>
+                    <button class="btn btn-secondary edit">edit</button>
+                    <button class="btn btn-danger remove">remove</button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td><button class="btn btn-dark add" id="ContactAdd">add</button></td>
+            </tr>
+        </tfoot>
+       </table>
+   
+       <!-- Contact Form -->
+       <form id="ContactForm">
+           <div class="modal fade" id="ContactModal" tabindex="-1" role="dialog" aria-hidden="true">
+               <div class="modal-dialog" role="document">
+       <div class="modal-content">
+           <div class="modal-header">
+               <h5 class="modal-title"></h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           </div>
+           <div class="modal-body">
+               <div class="form-group">
+                   <label>Name</label>
+            <input type="text" class="form-control" data-prop="name" placeholder="Enter name" maxlength="100" required />
+               </div>
+               <div class="form-group">
+                   <label>Email</label>
+            <input type="email" class="form-control" data-prop="email" placeholder="Enter email" maxlength="100" required />
+               </div>
+               <div class="form-group">
+                   <label>Phone</label>
+            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="Enter phone" maxlength="50" />
+               </div>
+           </div>
+           <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               <button type="submit" class="btn btn-primary">Save</button>
+           </div>
+       </div>
+               </div>
+           </div>
+       </form>
+
+       
                         </div>
 
-                        <div class="col-md-12 row gallery-item">
+                        <div class="col-md-12 row gallery-item categories">
                                 <div class="col-md-4">
-                                    <a href="assets/images/elements/g1.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g1.jpg);"></div></a>
-                                </div>
-                                <div class="col-md-4">
-                                    <a href="assets/images/elements/g2.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g2.jpg);"></div></a>
-                                </div>
-                                <div class="col-md-4">
-                                    <a href="assets/images/elements/g3.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g3.jpg);"></div></a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="assets/images/elements/g4.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g4.jpg);"></div></a>
-                                </div>
-                                <div class="col-md-6">
-                                    <a href="assets/images/elements/g5.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g5.jpg);"></div></a>
+                                    <div class="single-category">
+                                        <a href="#" class="img-gal"><div class="single-gallery-image"> <span>اثاث منزلي</span></div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="assets/images/elements/g6.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g6.jpg);"></div></a>
+                                        <div class="single-category">
+                                            <a href="#" class="img-gal"><div class="single-gallery-image"><span>ملابس</span></div></a>
+
+                                            </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="assets/images/elements/g7.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g7.jpg);"></div></a>
+                                        <div class="single-category">
+                                            <a href="#" class="img-gal"><div class="single-gallery-image"> <span>ادوات كهربائيه</span></div></a>
+                                            
+                                            </div>
                                 </div>
                                 <div class="col-md-4">
-                                    <a href="assets/images/elements/g8.jpg" class="img-gal"><div class="single-gallery-image" style="background: url(assets/images/elements/g8.jpg);"></div></a>
+                                        <div class="single-category">
+                                            <a href="#" class="img-gal"><div class="single-gallery-image"><span>حاجيات اساسيه</span></div></a>
+                                            
+                                        </div>
+                                </div>
+                                <div class="col-md-4">
+                                        <div class="single-category">
+                                            <a href="#" class="img-gal"><div class="single-gallery-image"><span>مستلزمات مدرسية</span></div></a>
+                                            
+                                            </div>
+                                </div>
+                                <div class="col-md-4">
+                                        <div class="single-category">
+                                            
+                                            <a href="#" class="img-gal"><div class="single-gallery-image"> <span>اخر</span></div></a>
+                                            </div>
                                 </div>
                             </div>
-                                                    </div>
-        
+                        </div>
         </section>
 
+              
     <!-- Footer Area Starts -->
     <footer class="footer-area section-padding" style="padding: 20px;">
             <div class="footer-copyright">
