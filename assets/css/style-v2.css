@@ -1,6 +1,17 @@
 .container .row img{
     width:100%;height: 100%;
 }
+
+.donate-btn{
+    background: green !important;
+    font-weight: bold;
+    padding: 10px !important;
+    float: right;
+    width: 180px !important;
+    height: 50px !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+}
 .main-menu{
     width: 100%;
     background: rgba(236, 236, 236, 0.5);

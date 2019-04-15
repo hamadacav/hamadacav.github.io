@@ -106,36 +106,7 @@
                         <h3 class="text-heading title_color" style="text-align:center;width:100%;"> <b> محتوى المخزن </b></h3>
 
                         <div class="col-md-12">
-
-
-                                <!-- Contacts Table -->
-    <table id="ContactTable" class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <td>...</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="data-temp">
-                <td data-prop="name"></td>
-                <td data-prop="email"></td>
-                <td data-prop="phone"></td>
-                <td>
-                    <button class="btn btn-secondary edit">edit</button>
-                    <button class="btn btn-danger remove">remove</button>
-                </td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3"></td>
-                <td><button class="btn btn-dark add" id="ContactAdd">add</button></td>
-            </tr>
-        </tfoot>
-       </table>
+                                <button class="btn btn-dark donate-btn" id="ContactAdd">تبرع لمخزن الخير</button>
    
        <!-- Contact Form -->
        <form id="ContactForm">
@@ -146,23 +117,23 @@
                <h5 class="modal-title"></h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            </div>
-           <div class="modal-body">
+           <div class="modal-body" style="text-align: right">
                <div class="form-group">
-                   <label>Name</label>
-            <input type="text" class="form-control" data-prop="name" placeholder="Enter name" maxlength="100" required />
+                   <label>الاسم الكامل</label>
+            <input type="text" class="form-control" data-prop="name" placeholder="اسم المتبرع" maxlength="100" required />
                </div>
                <div class="form-group">
-                   <label>Email</label>
-            <input type="email" class="form-control" data-prop="email" placeholder="Enter email" maxlength="100" required />
+                   <label>البلد</label>
+            <input type="email" class="form-control" data-prop="email" placeholder="البلد" maxlength="100" required />
                </div>
                <div class="form-group">
-                   <label>Phone</label>
-            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="Enter phone" maxlength="50" />
+                   <label>رقم الهاتف</label>
+            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="رقم الهاتف" maxlength="50" />
                </div>
            </div>
            <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-primary">Save</button>
+               <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin:5%;">اغلق</button>
+               <button type="submit" class="btn btn-primary">احفظ</button>
            </div>
        </div>
                </div>
