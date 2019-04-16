@@ -10,6 +10,23 @@
       $('#ContactTable').on('click', 'button.remove', remove);
       $('#ContactAdd').click(add);
       $('#ContactForm').submit(save);
+
+      $("#img1-picker").change( function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        $("#img1").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
+    
+    $('#img2-picker').change( function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        $("#img2").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+    
+    });
+    
+    $('#img3-picker').change( function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        $("#img3").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
+    
   };
 
   // init on doc ready
@@ -139,5 +156,14 @@
    alert("failed to save contact");
       });
   };
+
+
+  $(".img-picker").click(function(){
+      var id=$(this).attr("id");
+      var pickerid=id+"-picker";
+      $("#"+pickerid).trigger('click');
+  });
+
+ 
 
 }(jQuery));

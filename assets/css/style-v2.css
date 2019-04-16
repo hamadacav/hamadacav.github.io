@@ -70,3 +70,12 @@
     font-size: 20px;
     font-weight: bold;
 }
+.products-images img{
+    max-width: 100px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.products-images div{
+    text-align: center;
+    font-weight: bold;
+}

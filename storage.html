@@ -122,14 +122,38 @@
                    <label>الاسم الكامل</label>
             <input type="text" class="form-control" data-prop="name" placeholder="اسم المتبرع" maxlength="100" required />
                </div>
+               
                <div class="form-group">
                    <label>البلد</label>
-            <input type="email" class="form-control" data-prop="email" placeholder="البلد" maxlength="100" required />
+            <input type="text" class="form-control" data-prop="email" placeholder="" maxlength="100" required />
                </div>
+
+
+
                <div class="form-group">
                    <label>رقم الهاتف</label>
-            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="رقم الهاتف" maxlength="50" />
+            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="" maxlength="50" />
                </div>
+               <div class="form-group">
+                <label>ارفق صور</label>
+                <span>(صورة واحدة على الاقل)</span>
+
+                <div class="row products-images">
+                    <div class="col-md-4">
+                        <span>صورة رقم 1</span>
+                        <img class="img-picker" id="img1" src="assets/images/default.jpg">
+                    </div>
+                    <div class="col-md-4">
+                            <span>صورة رقم 2</span>
+                        <img class="img-picker" id="img2" src="assets/images/default.jpg">
+                    </div>
+                    <div class="col-md-4">
+                            <span>صورة رقم 3</span>
+                        <img class="img-picker" id="img3" src="assets/images/default.jpg">
+                    </div>
+                </div>
+
+        </div>
            </div>
            <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin:5%;">اغلق</button>
@@ -217,5 +241,10 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
     <script src="storage.js"></script>
+
+    <input type="file" style="visibility:hidden;" id="img1-picker" accept="image/png, image/jpeg">
+    <input type="file" style="visibility:hidden;" id="img2-picker" accept="image/png, image/jpeg">
+    <input type="file" style="visibility:hidden;" id="img3-picker" accept="image/png, image/jpeg">
+
 </body>
 </html>
