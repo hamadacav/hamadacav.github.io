@@ -20,6 +20,26 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/style-v2.css">
+
+        <!-- Firebase -->
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+        
+    
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB5CTp9W7uVG3etrANmP1Jq76PZasTYBzw",
+        authDomain: "konawnan-56bfc.firebaseapp.com",
+        databaseURL: "https://konawnan-56bfc.firebaseio.com",
+        projectId: "konawnan-56bfc",
+        storageBucket: "konawnan-56bfc.appspot.com",
+        messagingSenderId: "790798243381"
+      };
+      firebase.initializeApp(config);
+    </script>
+
 </head>
 <body>
     <!-- Preloader Starts -->
@@ -57,46 +77,46 @@
 
     <!-- News Area Starts -->
     <section>
-        <div class="container" style="min-height: 200px;">
+        <div class="container" style="min-height: 100px;">
             <div class="col-md-12 row products-header">
                 <div class="col-md-2">
-                    <a href="#" class="img-gal">
-                        <div>
+                    <a href="products.html?type=home-furniture" class="img-gal">
+                        <div id="nav-home-furniture">
                                 <span>اثاث منزلي</span>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="img-gal">
-                        <div class="products-header-active">
+                    <a href="products.html?type=clothes" class="img-gal">
+                        <div id="nav-clothes">
                             <span>ملابس</span>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="img-gal">
-                        <div> 
+                    <a href="products.html?type=electricity" class="img-gal">
+                        <div id="nav-electricity"> 
                             <span>ادوات كهربائيه</span>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-2">
-                    <a href="#" class="img-gal">
-                        <div>
+                    <a href="products.html?type=basic-stuff" class="img-gal">
+                        <div id="nav-basic-stuff">
                             <span>حاجيات اساسيه</span>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-2">
-                        <a href="#" class="img-gal">
-                            <div>
+                        <a href="products.html?type=school-stuff" class="img-gal">
+                            <div id="nav-school-stuff">
                                 <span>مستلزمات مدرسية</span>
                             </div>
                         </a>
                 </div>
                 <div class="col-md-2">
-                        <a href="#" class="img-gal">
-                            <div> 
+                        <a href="products.html?type=other" class="img-gal">
+                            <div id="nav-other"> 
                                 <span>اخر</span>
                             </div>
                         </a>
@@ -106,15 +126,13 @@
     </section>
     <!-- News Area End -->
 
-
-<section>
-
-</section>
-    <div class="container">
+    <div class="container" style="min-height:200px">
+        <div style="width:100%;text-align: center"><h2>لا يوجد اغراض</h2></div>
         <div class="row">
 
+            
             <!-- Grid column -->
-            <div class="col-lg-4 col-md-12 mb-4">
+            <div class="col-lg-4 col-md-12 mb-4" style="display:none;">
           
               <!--Modal: Name-->
               <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -199,6 +217,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="assets/js/vendor/jquery.nice-select.min.js"></script>
     <script src="assets/js/vendor/ion.rangeSlider.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="products.js"></script>
     <script>
     function navigate(page){
         window.location.href=page;
