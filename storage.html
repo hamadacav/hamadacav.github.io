@@ -26,6 +26,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-storage.js"></script>
     
 
 <script>
@@ -113,8 +114,8 @@
            <div class="modal fade" id="ContactModal" tabindex="-1" role="dialog" aria-hidden="true">
                <div class="modal-dialog" role="document">
        <div class="modal-content">
-           <div class="modal-header">
-               <h5 class="modal-title"></h5>
+           <div class="modal-header" style="direction:ltr;">
+               <h5 class="modal-title" style="display:none;"></h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
            </div>
            <div class="modal-body" style="text-align: right">
@@ -128,11 +129,9 @@
             <input type="text" class="form-control" data-prop="email" placeholder="" maxlength="100" required />
                </div>
 
-
-
                <div class="form-group">
                    <label>رقم الهاتف</label>
-            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="" maxlength="50" />
+            <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="" maxlength="50" required />
                </div>
                <div class="form-group">
                 <label>ارفق صور</label>

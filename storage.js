@@ -1,6 +1,11 @@
 (function ($) {
   // firestore ref
   var db;
+  var storageService;
+  var storageRef;
+  var clickedBefore=false;
+   formData={};
+  formData["images"]={};
 
   // auth and setup event handlers
   var init = function () {
@@ -13,24 +18,33 @@
 
       $("#img1-picker").change( function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
-        $("#img1").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+        $("#img1").attr('src',URL.createObjectURL(event.target.files[0]));
+
+        formData["images"][0]=event.target.files[0];
+
     });
     
     $('#img2-picker').change( function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
-        $("#img2").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
-    
+        $("#img2").attr('src',URL.createObjectURL(event.target.files[0]));
+        formData["images"][1]=event.target.files[0];
     });
     
     $('#img3-picker').change( function(event) {
+        console.log(event.target.files);
         var tmppath = URL.createObjectURL(event.target.files[0]);
-        $("#img3").fadeIn("fast").attr('src',URL.createObjectURL(event.target.files[0]));
+        $("#img3").attr('src',URL.createObjectURL(event.target.files[0]));
+        formData["images"][3]=event.target.files[0];
+        
+        handleFileUploadSubmit(event.target.files[0]);
     });
+
     
   };
 
   // init on doc ready
   $(document).ready(init);
+
 
   // sign-in anonymously
   var auth = function () {
@@ -39,11 +53,17 @@
    db = firebase.firestore();
    db.settings({ timestampsInSnapshots: true });
 
+    storageService = firebase.storage();
+    storageRef = storageService.ref();
+
    list();
+
+
       })
       .catch(function (error) {
    alert("failed to anonymously sign-in");
       });
+
   };
 
 
@@ -65,17 +85,12 @@
       db.collection("contacts").get().then(function (querySnapshot) {
           querySnapshot.forEach(function (doc) {
               // clone template row and append to table body
-              var tr = tempTr.clone();
-              tr.data('id', doc.id);
-              var data = doc.data();
-              // set cell values from Contact data
-              tr.find('td[data-prop]').each(function () {
-                  var td = $(this);
-                  td.text(data[td.data('prop')] || '');
-              });
-              tblBody.append(tr);
+              //var tr = tempTr.clone();
+
           });
       });
+
+
   };
 
   // on remove
@@ -107,11 +122,15 @@
   // open form modal
   var open = function (id) {
       var modal = $('#ContactModal');
+      $(".modal-title").text("");
+      $(".modal-title").css("display","none");
       // set current Contact id
       modal.data('id', id);
       // reset all inputs
       modal.find('input').val('');
-      modal.modal('show');
+      if(modal.modal){
+          modal.modal('show');
+      }
 
       if (!id) return;
 
@@ -136,7 +155,6 @@
   // update or add
   var save = function (e) {
       e.preventDefault();
-
       var modal = $('#ContactModal');
       var id = modal.data('id');
       var data = {};
@@ -145,6 +163,12 @@
           var inp = $(this);
           data[inp.data('prop')] = inp.val();
       });
+
+      if($('#img1-picker').val()=="" && $('#img2-picker').val()==""  && $('#img3-picker').val()=="" ){
+          $(".modal-title").text("يجب ان ترفق صورة واحدة على الاقل");
+          $(".modal-title").css("display","block");
+          return;
+      }
 
       // update or add
       (id ? db.collection("contacts").doc(id).update(data) : db.collection("contacts").add(data)).then(function (result) {
@@ -164,6 +188,17 @@
       $("#"+pickerid).trigger('click');
   });
 
- 
+  function handleFileUploadSubmit(selectedFile) {
+    const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile); //create a child directory called images, and place the file inside this directory
+    uploadTask.on('state_changed', (snapshot) => {
+    // Observe state change events such as progress, pause, and resume
+    }, (error) => {
+      // Handle unsuccessful uploads
+      console.log(error);
+    }, () => {
+       // Do something once upload is complete
+       console.log('success');
+    });
+  }
 
 }(jQuery));
