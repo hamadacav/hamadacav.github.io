@@ -37,19 +37,29 @@
 }
 
 .single-category{
-    background-color: #ff9902 !important;
+    background-color: #febc11 !important;
     text-align: center;
-    height: 70%;
+    height: 70px;
     padding: 0px;
 }
 .categories span{
-    position: absolute;
-    right: 0px;
-    top:20%;
     font-size: 30px;
     color: white;
     width: 100%;
 }
+.single-category:hover a{
+    text-decoration: none;
+}
+.categories img{
+
+    max-height: 273px;
+    cursor: pointer;
+}
+.categories .col-md-4{
+    margin-top: 10px;
+}
+
+
 .categories span:hover{
    color: black;
 }
