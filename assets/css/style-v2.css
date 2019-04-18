@@ -119,3 +119,24 @@
     font-weight: bold;
     text-align:right;font-size:20px;direction: rtl;width:100%;
 }
+.consultant-container{
+    width: 100%;
+    text-align: center;
+    background: rgba(236, 236, 236, 0.5);
+    padding: 10px;
+}
+.consultant-container label{
+    font-weight: bold;
+}
+.consultant-container li{
+    text-align: right !important;
+}
+.consultant-container .current{
+    float: right !important;
+}
+.map-area img{
+    width: 60% !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
