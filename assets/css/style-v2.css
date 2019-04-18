@@ -57,10 +57,8 @@
     margin-top: 0px;
 }
 .avatar-img{
-    width: 100px !important;
-    height: 100px !important;
-    box-shadow: 0px 0px 2px 1px grey;
-    border-radius: 5rem;
+    width: 150px !important;
+    height: 150px !important;
 }
 .table-about-us-names{
     height: 100%;
@@ -69,6 +67,11 @@
     position: relative;
     font-size: 20px;
     font-weight: bold;
+    width: 150px;
+    margin: auto;
+    padding: 5px;
+    background: #91c642;
+    margin-top: 10px;
 }
 .products-images img{
     max-width: 100px;
@@ -99,4 +102,10 @@
     float: right;
     width: 100%;
     text-align: center;
+}
+.text-p-style{
+    background: lightgrey;
+    padding: 10px;
+    font-weight: bold;
+    text-align:right;font-size:20px;direction: rtl;width:100%;
 }
