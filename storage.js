@@ -6,6 +6,9 @@
   var clickedBefore=false;
    formData={};
   formData["images"]={};
+  imgUpload=0;
+  inProccess=false;
+
 
   // auth and setup event handlers
   var init = function () {
@@ -34,9 +37,7 @@
         console.log(event.target.files);
         var tmppath = URL.createObjectURL(event.target.files[0]);
         $("#img3").attr('src',URL.createObjectURL(event.target.files[0]));
-        formData["images"][3]=event.target.files[0];
-        
-        handleFileUploadSubmit(event.target.files[0]);
+        formData["images"][2]=event.target.files[0];
     });
 
     
@@ -124,6 +125,17 @@
       var modal = $('#ContactModal');
       $(".modal-title").text("");
       $(".modal-title").css("display","none");
+      inProccess=false;
+      $("#img1").attr("src","assets/images/default.jpg");
+      $("#img2").attr("src","assets/images/default.jpg");
+      $("#img3").attr("src","assets/images/default.jpg");
+      $("#img1-picker").val("");
+      $("#img2-picker").val("");
+      $("#img3-picker").val("");
+
+      imgUpload=0;
+      formData["images"]={};
+
       // set current Contact id
       modal.data('id', id);
       // reset all inputs
@@ -157,7 +169,17 @@
       e.preventDefault();
       var modal = $('#ContactModal');
       var id = modal.data('id');
+
+        inProccess=!inProccess;
+
+        if(!inProccess){
+            return;
+        }
       var data = {};
+      data["img1"]="";
+      data["img2"]="";
+      data["img3"]="";
+      data["approved"]="0";
       //read values from form inputs
       modal.find('input[data-prop]').each(function () {
           var inp = $(this);
@@ -170,15 +192,35 @@
           return;
       }
 
+      if($("#product_type").val()==""){
+        $(".modal-title").text("يجب ان تختار نوع الغرض");
+        $(".modal-title").css("display","block");
+        return;
+      }
+      data["type"] = $("#product_type").val();
       // update or add
-      (id ? db.collection("contacts").doc(id).update(data) : db.collection("contacts").add(data)).then(function (result) {
-          // hide modal and reload list
-          modal.modal('hide');
-          list();
-      })
-      .catch(function (error) {
-   alert("failed to save contact");
+
+      Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
+    
+    // Get the size of an object
+    var size = Object.size(formData["images"]);
+
+    modal.modal('hide');
+    $('.preloader').css("display","block")
+    var cnt=0;
+      $.each(formData["images"],function(i,v){
+          cnt++;
+        handleFileUploadSubmit(cnt,size,data,v);
       });
+      
+
+      return;
   };
 
 
@@ -188,7 +230,7 @@
       $("#"+pickerid).trigger('click');
   });
 
-  function handleFileUploadSubmit(selectedFile) {
+  function handleFileUploadSubmit(cnt,size,data,selectedFile) {
     const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile); //create a child directory called images, and place the file inside this directory
     uploadTask.on('state_changed', (snapshot) => {
     // Observe state change events such as progress, pause, and resume
@@ -197,7 +239,33 @@
       console.log(error);
     }, () => {
        // Do something once upload is complete
-       console.log('success');
+       uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        console.log('File available at', downloadURL);
+        data["img"+cnt]=downloadURL;
+        imgUpload++;
+        if(imgUpload==size){
+            function makeid(length) {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+              
+                for (var i = 0; i < length; i++)
+                  text += possible.charAt(Math.floor(Math.random() * possible.length));
+              
+                return text;
+              }
+              var id=makeid(10);
+
+            (db.collection("products").add(data)).then(function (result) {
+                alert("لقد تم رفع الغرض بنجاح ,شكرًا جزيلًا");
+                $('.preloader').css("display","none");
+            }).catch(function (error) {
+                var txt="لقد حدث خطأ حاول مرة أخرى";
+                alert(txt);
+                $('.preloader').css("display","none");
+            });
+        }
+      });
+
     });
   }
 

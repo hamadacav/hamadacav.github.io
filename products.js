@@ -1,12 +1,13 @@
 (function ($) {
     // firestore ref
     var db;
+    var productType="";
+    products={};
   
     // auth and setup event handlers
     var init = function () {
-        auth();
-  
-
+        
+        
         var getParams = function (url) {
             var params = {};
             var parser = document.createElement('a');
@@ -25,18 +26,25 @@
         }
         switch(params.type){
             case "home-furniture" :
-                break;
+            productType="storage-fur";
+            break;
             case "clothes" :
-                break;
+            productType="storage-clothes";
+            break;
             case "electricity" :
-                break;
+            productType="storage-ele";
+            break;
             case "basic-stuff" :
-                break;
+            productType="storage-basic";
+            break;
             case "school-stuff" :
-                break;
+            productType="storage-school";
+            break;
             case "other" :
-                break;
+            productType="storage-other";
+            break;
         }
+        auth();
     };
   
     // init on doc ready
@@ -61,8 +69,66 @@
     // load list
     var list = function () {
         //do somthing
+
+        $('.preloader').css("display","block");
+
+         db.collection("products").where("type", "==", productType)
+         .get()
+         .then(function(querySnapshot) {
+               if(!querySnapshot.docs.length){
+                    $("#no-stuff").css("display","block");
+                    
+                $('.preloader').css("display","none");
+               }else{
+                    $("#no-stuff").css("display","none");
+                   
+                $('.preloader').css("display","none");
+                   querySnapshot.forEach(function(doc) {
+                       // doc.data() is never undefined for query doc snapshots
+                       console.log(doc.id, " => ", doc.data());
+                       showProduct(doc.id,doc.data());
+                   });
+               }
+
+             
+         })
+         .catch(function(error) {
+             console.log("Error getting documents: ", error);
+         });;
+
+
     };
-  
+  function showProduct(id,data){
+      console.log(data);
+      var clone= $(".oneProduct").clone();
+      var img1=data.img1;
+      var img2=data.img2;
+      var img3=data.img3;
+      if(img1!=""){
+        $(clone).find(".img_1 img").attr("src",img1);
+        $(clone).find(".modal-cover").attr("src",img1);
+    
+      }
+      if(img2!=""){
+        $(clone).find(".img_2 img").attr("src",img2);
+      }else{
+        $(clone).find(".img_2").remove();
+      }
+      if(img3!=""){
+        $(clone).find(".img_3 img").attr("src",img3);
+      }else{
+        $(clone).find(".img_3").remove();
+      }
+      $(clone).css("display","block");
+      $(clone).find(".caro1").attr("id","caroZ"+id);
+      $(clone).find(".carousel-control-prev").attr("href","#caroZ"+id);
+      $(clone).find(".carousel-control-next").attr("href","#caroZ"+id);
+     
+      $(clone).find(".boss").attr("id","modal"+id);
+      $(clone).find(".modal-cover").attr("data-target","#modal"+id);
+    
+      $(".prod-cont").append(clone);
+  }
     // on remove
     var remove = function (e) {
         e.preventDefault();
@@ -72,7 +138,6 @@
             list();
         })
         .catch(function (error) {
-     alert("failed to remove contact");
         });
     };
   

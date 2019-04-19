@@ -132,8 +132,21 @@
                    <label>رقم الهاتف</label>
             <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="" maxlength="50" required />
                </div>
+               <div class="form-group consultant-container" style="padding: 0px;background: none;">
+                    <label style="float:right;font-weight:normal">نوع الغرض</label>
+
+                    <select id="product_type" class="form-control">
+                            <option value=""></option>
+                            <option value="storage-ele">ادوات كهربائيه</option>
+                            <option value="storage-fur">اثاث منزلي</option>
+                            <option value="storage-basic">حاجيات اساسيه</option>
+                            <option value="storage-clothes">ملابس</option>
+                            <option value="storage-school">مستلزمات مدرسية</option>
+                            <option value="storage-other">اخر</option>
+                    </select>
+            </div>
                <div class="form-group">
-                <label>ارفق صور</label>
+                <label style="width:100%">ارفق صور</label>
                 <span>(صورة واحدة على الاقل)</span>
 
                 <div class="row products-images">
@@ -260,6 +273,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <input type="file" style="visibility:hidden;" id="img1-picker" accept="image/png, image/jpeg">
     <input type="file" style="visibility:hidden;" id="img2-picker" accept="image/png, image/jpeg">
     <input type="file" style="visibility:hidden;" id="img3-picker" accept="image/png, image/jpeg">
+
 
 </body>
 </html>

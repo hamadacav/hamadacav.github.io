@@ -140,3 +140,22 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.modal-content .nice-select span.current{
+    line-height: 24px !important;margin-right: 20px;
+}
+
+.carousel-item{
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.oneProduct{
+    margin: 10px;
+    border: 2px solid grey;
+    cursor: pointer;
+}
+.modal-body .container .row img{
+    margin: 20px;
+}
