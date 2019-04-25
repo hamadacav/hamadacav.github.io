@@ -21,6 +21,10 @@
     <link rel="stylesheet" href="assets/css/nice-select.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/style-v2.css">
+    
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.7/css/mdb.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Preloader Starts -->
@@ -110,21 +114,32 @@
                                     </div>
                                 </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group" style="text-align:right;">
-                                                    <label for="form_need">نوع الاستشارة</label>
-                                                    <select id="form_need" name="need" class="form-control" required="required" data-error="Please specify your need.">
-                                                        <option value=""></option>
-                                                        <option value="consultant-medical">استشارة طبية </option>
-                                                        <option value="consultant-family">استشارة أسرية  </option>
-                                                        <option value="consultant-money">استشارة مالية</option>
-                                                        <option value="consultant-religious">استشارة دينية</option>
-                                                        <option value="consultant-other">اخر</option>
-                                                    </select>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
+
+
+                                <div class="col-md-12">
+                                    <div class="form-group" style="text-align:right;">
+                                        <label for="form_need" style="margin-left:20px;">نوع الاستشارة</label>
+                                        <div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-light-blue form-check-label active">
+                                                    <input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked style="visibility:hidden">
+                                                    استشارة طبية
+                                                </label>
+                                                <label class="btn btn-light-blue form-check-label">
+                                                    <input class="form-check-input" type="radio" name="options" id="option2" autocomplete="off" style="visibility:hidden"> استشارة أسرية
+                                                </label>
+                                                <label class="btn btn-light-blue form-check-label">
+                                                    <input class="form-check-input" type="radio" name="options" id="option3" autocomplete="off" style="visibility:hidden"> استشارة مالية
+                                                </label>
+                                                <label class="btn btn-light-blue form-check-label">
+                                                    <input class="form-check-input" type="radio" name="options" id="option3" autocomplete="off" style="visibility:hidden">استشارة دينية
+                                                </label>
+                                                <label class="btn btn-light-blue form-check-label">
+                                                    <input class="form-check-input" type="radio" name="options" id="option3" autocomplete="off" style="visibility:hidden">اخر
+                                                </label>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
