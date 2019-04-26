@@ -107,15 +107,16 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <form action="#">
+                    <form method="post" action="#" id="contact-us-form">
                         <div class="left" style="float: right;
                         margin-left: 2%;margin-right:0px;">
-                            <input type="text" placeholder="الاسم الكامل" onfocus="this.placeholder = ''" onblur="this.placeholder = 'الاسم الكامل'" required>
-                            <input type="email" placeholder="البريد الالكتروني" onfocus="this.placeholder = ''" onblur="this.placeholder = 'البريد الالكتروني'" required>
-                            <input type="text" placeholder="عنوان الرسالة" onfocus="this.placeholder = ''" onblur="this.placeholder = 'عنوان الرسالة'" required>
+                            <input type="text" name="sender" placeholder="الاسم الكامل" onfocus="this.placeholder = ''" onblur="this.placeholder = 'الاسم الكامل'" required>
+                            <input type="number" onKeyPress="if(this.value.length==10) return false;" name="phone" placeholder="رقم الهاتف" onfocus="this.placeholder = ''" onblur="this.placeholder = 'رقم الهاتف'" required>
+                            <input type="email" name="mail" placeholder="البريد الالكتروني" onfocus="this.placeholder = ''" onblur="this.placeholder = 'البريد الالكتروني'" required>
+                            <input type="text" name="subject" placeholder="عنوان الرسالة" onfocus="this.placeholder = ''" onblur="this.placeholder = 'عنوان الرسالة'" required>
                         </div>
                         <div class="right">
-                            <textarea name="message" cols="20" rows="7"  placeholder="فحوي الرسالة" onfocus="this.placeholder = ''" onblur="this.placeholder = 'فحوي الرسالة'" required></textarea>
+                            <textarea name="content" cols="20" rows="7"  placeholder="فحوي الرسالة" onfocus="this.placeholder = ''" onblur="this.placeholder = 'فحوي الرسالة'" required></textarea>
                         </div>
                         <button type="submit" class="template-btn">ارسل </button>
                     </form>

@@ -270,4 +270,44 @@
         // Preloader
 		$('.preloader').fadeOut(500);
     });
+
+
+    $("#contact-us-form").on('submit', function(e) {
+        e.preventDefault();
+        var $inputs = $('#contact-us-form :input');
+
+        // not sure if you wanted this, but I thought I'd add it.
+        // get an associative array of just the values.
+        var values = {};
+        $inputs.each(function() {
+            if(this.name!="")
+                values[this.name] = $(this).val();
+        });
+
+
+        values["title"] = "كن عونًا";
+        values["source"] = "Kun-Awnn";
+        values["mailformsource"]="اتصل بنا";
+        values["logosrc"]="https://hamadacav.github.io/assets/images/logobordered.png";
+
+        var jsonObj=values;
+        var api_url="https://dazdev.com/api/v1/sendmail";
+        
+        $.ajax({
+            url: api_url,
+            type: "POST",
+            data: jsonObj,
+            dataType: "json",
+            success: function (data) {
+                var msg="لقد تم ارسال البيانات بنجاح! شكرًا لك";
+                $('#contact-us-form').find('input').val('');
+                alert(msg);
+            },
+            error: function (err) {
+                var msg="حدث خطأ - حاول مرة أخرى";
+                alert(msg);
+            }
+            });
+
+    });
 })(jQuery);
