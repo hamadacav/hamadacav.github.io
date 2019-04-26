@@ -292,7 +292,7 @@
 
         var jsonObj=values;
         var api_url="https://dazdev.com/api/v1/sendmail";
-        
+
         $.ajax({
             url: api_url,
             type: "POST",
@@ -301,6 +301,7 @@
             success: function (data) {
                 var msg="لقد تم ارسال البيانات بنجاح! شكرًا لك";
                 $('#contact-us-form').find('input').val('');
+                $("#contact-us-form").find("textarea").val("");
                 alert(msg);
             },
             error: function (err) {
