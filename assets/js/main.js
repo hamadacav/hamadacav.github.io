@@ -335,7 +335,7 @@
 
         values["title"] = "كن عونًا";
         values["source"] = "Kun-Awnn";
-        values["mailformsource"]="استشارة";
+        values["mailformsource"]="استشارات";
         values["logosrc"]="https://hamadacav.github.io/assets/images/logobordered.png";
 
         
@@ -343,7 +343,7 @@
         values["content"]=consultant_content;
 
 
-        values["name"]=values["name"].concat(" ").concat(values["surname"])
+        values["sender"]=values["name"].concat(" ").concat(values["surname"])
 
         var jsonObj=values;
         var api_url="https://dazdev.com/api/v1/sendmail";
@@ -358,6 +358,8 @@
                 var msg="لقد تم ارسال البيانات بنجاح! شكرًا لك";
                 $('#consultant-form :input[type=text],#consultant-form :input[type=number],#consultant-form :input[type=email]').val("");
                 $("#consultant_content").val("");
+                $("#consultant-form").find(".active").removeClass("active");
+                $("#consultant-form").find("#option1").parent().addClass("active");
                 alert(msg);
             },
             error: function (err) {
