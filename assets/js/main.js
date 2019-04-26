@@ -311,4 +311,67 @@
             });
 
     });
+
+    $("#consultant-form").on('submit', function(e) {
+        e.preventDefault();
+        var $inputs = $('#consultant-form :input[type=text],#consultant-form :input[type=number],#consultant-form :input[type=email]');
+
+        // not sure if you wanted this, but I thought I'd add it.
+        // get an associative array of just the values.
+        var values = {};
+        $inputs.each(function() {
+            if(this.name!="")
+                values[this.name] = $(this).val();
+        });
+
+        var consultant_type="UNKNOWN";
+        var consultant_content="";
+        
+        if($("#consultant-form").find(".active").length){
+            consultant_type=$("#consultant-form").find(".active").text().trim();
+        }
+        consultant_content=$("#consultant_content").val();
+
+
+        values["title"] = "كن عونًا";
+        values["source"] = "Kun-Awnn";
+        values["mailformsource"]="استشارة";
+        values["logosrc"]="https://hamadacav.github.io/assets/images/logobordered.png";
+
+        
+        values["subject"]=consultant_type;
+        values["content"]=consultant_content;
+
+
+        values["name"]=values["name"].concat(" ").concat(values["surname"])
+
+        var jsonObj=values;
+        var api_url="https://dazdev.com/api/v1/sendmail";
+
+
+        $.ajax({
+            url: api_url,
+            type: "POST",
+            data: jsonObj,
+            dataType: "json",
+            success: function (data) {
+                var msg="لقد تم ارسال البيانات بنجاح! شكرًا لك";
+                $('#consultant-form :input[type=text],#consultant-form :input[type=number],#consultant-form :input[type=email]').val("");
+                $("#consultant_content").val("");
+                alert(msg);
+            },
+            error: function (err) {
+                var msg="حدث خطأ - حاول مرة أخرى";
+                alert(msg);
+            }
+            });
+
+    });
+
+
+
+
+
+
+    
 })(jQuery);

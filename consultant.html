@@ -75,7 +75,7 @@
 
                             <h3 class="text-heading" style="text-align:center;width:100%;"> املأ التفاصيل ادناة وسنتواصل معك</b></h3>
 
-                            <form id="contact-form" method="post" action="contact.php" role="form">
+                            <form id="consultant-form" method="post" action="#" role="form">
 
                             <div class="messages"></div>
                         
@@ -108,7 +108,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="form_phone">رقم الهاتف</label>
-                                            <input id="form_phone" type="text" name="phone" class="form-control" placeholder="" required="required" data-error="Valid phone is required.">
+                                            <input id="form_phone" type="number" onKeyPress="if(this.value.length==10) return false;" name="phone" class="form-control" placeholder="" required="required" data-error="Valid phone is required.">
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
@@ -120,21 +120,21 @@
                                     <div class="form-group" style="text-align:right;">
                                         <label for="form_need" style="margin-left:20px;">نوع الاستشارة</label>
                                         <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-light-blue form-check-label active">
+                                                <label class="btn btn-light-grey form-check-label active">
                                                     <input class="form-check-input" type="radio" name="options" id="option1" autocomplete="off" checked style="visibility:hidden">
                                                     استشارة طبية
                                                 </label>
-                                                <label class="btn btn-light-blue form-check-label">
+                                                <label class="btn btn-light-grey form-check-label">
                                                     <input class="form-check-input" type="radio" name="options" id="option2" autocomplete="off" style="visibility:hidden"> استشارة أسرية
                                                 </label>
-                                                <label class="btn btn-light-blue form-check-label">
+                                                <label class="btn btn-light-grey form-check-label">
                                                     <input class="form-check-input" type="radio" name="options" id="option3" autocomplete="off" style="visibility:hidden"> استشارة مالية
                                                 </label>
-                                                <label class="btn btn-light-blue form-check-label">
-                                                    <input class="form-check-input" type="radio" name="options" id="option3" autocomplete="off" style="visibility:hidden">استشارة دينية
+                                                <label class="btn btn-light-grey form-check-label">
+                                                    <input class="form-check-input" type="radio" name="options" id="option4" autocomplete="off" style="visibility:hidden">استشارة دينية
                                                 </label>
-                                                <label class="btn btn-light-blue form-check-label">
-                                                    <input class="form-check-input" type="radio" name="options" id="option3" autocomplete="off" style="visibility:hidden">اخر
+                                                <label class="btn btn-light-grey form-check-label">
+                                                    <input class="form-check-input" type="radio" name="options" id="option5" autocomplete="off" style="visibility:hidden">اخر
                                                 </label>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <textarea id="form_message" name="message" class="form-control" placeholder="مضمون الاستشارة" rows="4" required="required" data-error="Please, leave us a message."></textarea>
+                                            <textarea id="consultant_content" name="content" class="form-control" placeholder="مضمون الاستشارة" rows="4" required="required" data-error="Please, leave us a message."></textarea>
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
