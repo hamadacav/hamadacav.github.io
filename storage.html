@@ -134,6 +134,10 @@
                    <label>رقم الهاتف</label>
             <input type="tel" pattern="^[\d\-+]*$" class="form-control" data-prop="phone" placeholder="" maxlength="50" required />
                </div>
+               <div class="form-group">
+                <label>وصف الغرض</label>
+         <input type="text" class="form-control" data-prop="desc" placeholder="" maxlength="200" required  />
+            </div>
                <div class="form-group consultant-container" style="padding: 0px;background: none;">
                     <label style="float:right;font-weight:normal">نوع الغرض</label>
 
@@ -146,7 +150,7 @@
                             <option value="storage-school">مستلزمات مدرسية</option>
                             <option value="storage-other">اخر</option>
                     </select>
-            </div>
+
                <div class="form-group">
                 <label style="width:100%">ارفق صور</label>
                 <span>(صورة واحدة على الاقل)</span>
@@ -266,10 +270,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="assets/js/main.js"></script><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
     <script src="storage.js"></script>
 
     <input type="file" style="visibility:hidden;" id="img1-picker" accept="image/png, image/jpeg">

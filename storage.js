@@ -254,6 +254,9 @@
                 return text;
               }
               var id=makeid(10);
+              
+              uploadRequest(data);
+              return;
 
             (db.collection("products").add(data)).then(function (result) {
                 alert("لقد تم رفع الغرض بنجاح ,شكرًا جزيلًا");
@@ -269,6 +272,41 @@
     });
   }
 
+
+    function uploadRequest(data){
+        var values = {};
+        values["title"] = "كن عونًا";
+        values["source"] = "Kun-Awnn";
+        values["mailformsource"]="تبرع";
+        values["logosrc"]="https://hamadacav.github.io/assets/images/logobordered.png";
+        
+        values["sender"] = data["name"];
+        values["phone"] = data["phone"];
+        values["mail"] = data["mail"];
+        values["content"] = data["img1"]+"/"+data["img2"]+"/"+data["img3"];
+    
+        values["subject"] = data["desc"]+" -- "+data["type"];
+
+        var jsonObj=values;
+        var api_url="https://dazdev.com/api/v1/sendmail";
+
+        $.ajax({
+            url: api_url,
+            type: "POST",
+            data: jsonObj,
+            dataType: "json",
+            success: function (data) {
+                var msg="لقد تم ارسال البيانات بنجاح! شكرًا لك";
+                alert(msg);
+                $('.preloader').css("display","none");
+            },
+            error: function (err) {
+                var msg="حدث خطأ - حاول مرة أخرى";
+                alert(msg);
+                $('.preloader').css("display","none");
+            }
+        });
+    }
 }(jQuery));
 
 function navigateTo(path){
